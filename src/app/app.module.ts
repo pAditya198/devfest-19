@@ -19,7 +19,6 @@ import { PreviousSpeakerCardComponent } from './elements/previous-speaker-card/p
 import { HomePageComponent } from './components/home-page/home-page.component';
 
 import { SpeakerCardComponent } from './elements/speaker-card/speaker-card.component';
-import { AppBarComponent } from './elements/app-bar/app-bar.component';
 import { SpeakerDialogueComponent } from './elements/speaker-dialogue/speaker-dialogue.component';
 import { ProfileIconComponent } from './elements/profile-icon/profile-icon.component';
 import { TeamPageComponent } from './components/team-page/team-page.component';
@@ -39,14 +38,14 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
     SpeakerCardComponent,
     PreviousSpeakerCardComponent,
     HomePageComponent,
-    AppBarComponent,
     SpeakerDialogueComponent,
     UserProfileComponent,
     ProfileIconComponent,
@@ -78,10 +77,12 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MatSidenavModule,
     LayoutModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    MatGridListModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     SpeakerDialogueComponent
