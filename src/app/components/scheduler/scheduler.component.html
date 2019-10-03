@@ -7,7 +7,7 @@
 
   <ng-container Layout="column" layout-align="space-between start">
     <div flex>
-      <mat-grid-list cols="4" rowHeight="4rem">
+      <mat-grid-list cols="3" class="topcol" rowHeight="6rem">
         <mat-grid-tile>
           <h3>Start Time</h3>
         </mat-grid-tile>
@@ -21,10 +21,11 @@
     </div>
     <div *ngFor='let data of schedule?.data'>
       <div flex>
-        <mat-grid-list cols="4" class="box" rowHeight="4rem">
+        <mat-grid-list cols="3" class="box" rowHeight="6rem">
           <mat-grid-tile>{{data.start_time}}</mat-grid-tile>
           <mat-grid-tile>{{data.speaker_name}}</mat-grid-tile>
           <mat-grid-tile>{{data.speaker_session}}</mat-grid-tile>
+          <hr>
         </mat-grid-list>
       </div>
     </div>
